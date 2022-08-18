@@ -40,32 +40,80 @@ namespace AddressBook
             AddressBook.Add(FirstName + " " + LastName, Contacts);
             Console.WriteLine("contact added in the Address Book");
         }
+        public void EditContact()
+        {
+            Console.WriteLine("Enter full contact name");
+            String ContactName = Console.ReadLine();
 
-            static void Main(string[] args)
+            if (AddressBook.ContainsKey(ContactName))
             {
+                Console.WriteLine("enter choice");
+                Console.WriteLine("enter 1 to edit First Name ");
+                Console.WriteLine("enter 2 to edit Last Name ");
+                Console.WriteLine("enter 3 to edit Address ");
+                Console.WriteLine("enter 4 to edit City ");
+                Console.WriteLine("enter 5 to edit State ");
+                Console.WriteLine("enter 6 to edit Zip ");
+                Console.WriteLine("enter 7 to edit Phone Number ");
+                Console.WriteLine("enter 8 to edit email ");
+                Console.WriteLine("enter 6 to edit Zip ");
+                
+                int option = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter the information ");
+                String information = Console.ReadLine();
 
-                Console.WriteLine("Welcome to Address Book ");
-                Console.WriteLine("Enter 1 to add contact in the address book ");
-
-                switch (Convert.ToInt32(Console.ReadLine()))
+                switch (option)
                 {
                     case 1:
-                        ContactList contact = new ContactList();
-
-                    Console.WriteLine(".....................................................................");
-
-                    Console.WriteLine("Enter 2 to add new contact in the address book ");
-                    switch (Convert.ToInt32(Console.ReadLine()))
-                    {
-                        case 2:
-                            ContactList newContact = new ContactList();
-                            break;
-
-                    }
-
-                    break;
-
+                        AddressBook[ContactName]["First Name"] = information;
+                        break;
+                    case 2:
+                        AddressBook[ContactName]["Last Name"] = information;
+                        break;
+                    case 3:
+                        AddressBook[ContactName]["Address"] = information;
+                        break;
+                    case 4:
+                        AddressBook[ContactName]["City"] = information;
+                        break;
+                    case 5:
+                        AddressBook[ContactName]["State"] = information;
+                        break;
+                    case 6:
+                        AddressBook[ContactName]["Zip"] = information;
+                        break;
+                    case 7:
+                        AddressBook[ContactName]["Phone number"] = information;
+                        break;
+                    case 8:
+                        AddressBook[ContactName]["Email"] = information;
+                        break;
                 }
+                Console.WriteLine("Contact edited");
+
             }
+            else
+                Console.WriteLine("contact doesn't exist");
+        }
+
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Welcome to Address Book ");
+
+
+            Console.WriteLine(".....................................................................");
+
+
+
+            ContactList editContact = new ContactList();
+            editContact.EditContact();
+        }
+
+
+
+
+        
     }   
 }
+
