@@ -95,7 +95,18 @@ namespace AddressBook
             else
                 Console.WriteLine("contact doesn't exist");
         }
-
+        public void DeleteContact()
+        {
+            Console.WriteLine("Enter contact name to be deleted:");
+            String ContactName = Console.ReadLine();
+            if (AddressBook.ContainsKey(ContactName))
+            {
+                AddressBook.Remove(ContactName);
+                Console.WriteLine("entered contact is removed");
+            }
+            else
+                Console.WriteLine("contact doesn't exist");
+        }
         static void Main(string[] args)
         {
 
@@ -106,8 +117,8 @@ namespace AddressBook
 
 
 
-            ContactList editContact = new ContactList();
-            editContact.EditContact();
+            ContactList deleteContact = new ContactList();
+            deleteContact.DeleteContact();
         }
 
 
