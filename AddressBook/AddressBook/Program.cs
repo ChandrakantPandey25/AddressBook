@@ -44,7 +44,6 @@ namespace AddressBook
             static void Main(string[] args)
             {
 
-
                 Console.WriteLine("Welcome to Address Book ");
                 Console.WriteLine("Enter 1 to add contact in the address book ");
 
@@ -52,14 +51,21 @@ namespace AddressBook
                 {
                     case 1:
                         ContactList contact = new ContactList();
-                        break;
 
+                    Console.WriteLine(".....................................................................");
+
+                    Console.WriteLine("Enter 2 to add new contact in the address book ");
+                    switch (Convert.ToInt32(Console.ReadLine()))
+                    {
+                        case 2:
+                            ContactList newContact = new ContactList();
+                            break;
+
+                    }
+
+                    break;
 
                 }
-
-
-
-
             }
     }   
 }
